@@ -1,0 +1,15 @@
+{
+  "name": "webuntis-influx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "influx": "^5.6.3",
+    "webuntis": "^1.14.0"
+  }
+}
