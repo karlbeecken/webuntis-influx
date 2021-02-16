@@ -61,6 +61,7 @@ untis
         default:
           break;
       }
+      console.log(t.su);
       now.name = t.su[0].longname;
       today.push(now);
     });
@@ -76,7 +77,14 @@ untis
         !today[i].block ||
         today[i].name === "Ufo" ||
         today[i].name === "Latein" ||
-        date.getDay() === 3 ||
+        (date.getDay() === 3 &&
+          (today[i].name === "Biologie" ||
+            today[i].name === "Physik" ||
+            today[i].name === "Erdkunde" ||
+            today[i].name === "Englisch" ||
+            today[i].name === "Mathematik" ||
+            today[i].name === "DS") &&
+          today[i].block === 1) ||
         (date.getDay() === 4 &&
           (today[i].name === "Biologie" ||
             today[i].name === "Physik" ||
@@ -94,6 +102,64 @@ untis
     // sort by block
     today.sort(function (a, b) {
       return a.block - b.block;
+    });
+
+    today.forEach((block, i) => {
+      let newName = "";
+      switch (block.name) {
+        case "Französisch":
+          newName = "Frz";
+          break;
+        case "Geschichte":
+          newName = "Ge";
+          break;
+        case "Politikwissenschaft":
+          newName = "PW";
+          break;
+        case "Chemie":
+          newName = "Ch";
+          break;
+        case "Deutsch":
+          newName = "De";
+          break;
+        case "Mathematik":
+          newName = "Ma";
+          break;
+        case "Erdkunde":
+          newName = "Ek";
+          break;
+        case "LernZeit":
+          newName = "LZ";
+          break;
+        case "Lernraum":
+          newName = "LR";
+          break;
+        case "Physik":
+          newName = "Phy";
+          break;
+        case "Kunst":
+          newName = "Ku";
+          break;
+        case "Musik":
+          newName = "Mu";
+          break;
+        case "Biologie":
+          newName = "Bio";
+          break;
+        case "Englisch":
+          newName = "En";
+          break;
+        case "Sport":
+          newName = "Sp";
+          break;
+        case "Ethik":
+          newName = "Eth";
+          break;
+        default:
+          newName = block.name;
+          break;
+      }
+      today[i].name = newName;
     });
 
     console.log(today);
